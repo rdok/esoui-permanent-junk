@@ -1,5 +1,8 @@
 ## About Permanent Junk
+
 > This addon does one, and only one thing: mark items as junk, **permanently**.
+
+[![Build Status](https://travis-ci.org/rdok/esoui-permanent-junk.svg?branch=master)](https://travis-ci.org/rdok/esoui-permanent-junk)
 
 I found it quite annoying once I sold items as junk marked, these items when re-acquired being unmarked as junk.
 
