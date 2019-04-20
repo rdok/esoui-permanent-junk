@@ -1,4 +1,4 @@
-local manifestPath = 'PermentJunk.txt'
+local manifestPath = 'PermanentJunk.txt'
 
 require "TimeAssertion"
 require "ChatAssertion"

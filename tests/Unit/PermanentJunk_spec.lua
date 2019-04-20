@@ -1,8 +1,12 @@
 describe("PermanentJunk", function()
 
-    --it("may format a text color for primary.", function()
-    --    local actual = PermanentJunk.primary('-value-')
-    --    assert.same('|c007bff-value-|r', actual)
-    --end)
+    it("should be auto-initialized", function()
+        assert.is_same({}, PermanentJunk)
+    end)
+
+    it("should auto-initialize the table of junk items", function()
+        local items = PermanentJunk.items
+        assert.is_equals({}, items)
+    end)
 
 end)
