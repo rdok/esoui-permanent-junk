@@ -19,3 +19,5 @@ There are a lot of addons that already do that, but they add a lot of additional
 
 ## Development
 This project is based on [ESOUI Framework](https://github.com/rdok/esoui-framework)
+
+Link code to game: `mklink /d "C:\Users\rdok\Documents\Elder Scrolls Online\live\AddOns\PermanentJunk" "D:\Code\PermanentJunk"`
