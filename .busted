@@ -1,6 +1,6 @@
 return {
   _all = {
-    helper = 'tests/bootstrap.lua',
+    helper = 'framework/bootstrap.lua',
     ROOT = {'tests'},
   }
 }
