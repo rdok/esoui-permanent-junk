@@ -1,4 +1,4 @@
-local manifestPath = 'AddonName.txt'
+local manifestPath = 'PermentJunk.txt'
 
 require "TimeAssertion"
 require "ChatAssertion"

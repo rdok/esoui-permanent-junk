@@ -1,44 +1,19 @@
-## About ESOUI Framework
-Create a development environment that is enjoyable and  allowing you to quickly and easily jump in creating esoui addons using TDD approach.
+## About Permanent Junk
+> This addon does one, and only one thing: mark items as junk, **permanently**.
 
-Use docker to expose lua interpreter upon alpine linux, luarocks package manager, and the busted lua testing framework.
-
-[![Build Status](https://travis-ci.org/rdok/esoui-framework.svg?branch=master)](https://travis-ci.org/rdok/esoui-framework)
-
-![ESOUI Framework Logo](logo.jpg "ESOUI Framework Logo") 
+I found it quite annoying once I sold items as junk marked, these items when re-acquired being unmarked as junk.
 
 
-
-### Developer Environment
-
-- Setup https://docs.docker.com/install/
-- Build the images:  
-    - `docker-compose build lua`
-    - `docker-compose build luarocks`
-    - `docker-compose build busted`
-- Replace `AddonName` with the addon name in `tests/bootstrap.lua`
-- Execute Tests `docker-compose run --rm busted  tests -v`
-
-### Scripts
-This `scripts` folder has scripts automating tasks such as getting busted, esoui sdks. Tools such as dos2unix, and even fetching esoui globals.
-
-### Link src to ESO path
-Storing source code inside the system feels like coding on production server :mind_blown: Let's fix that by creating a symbolic link from the source code to system:
-- Open `cmd` with Admin privileges
-- Paste: `mklink /d "C:\Users\rdok\Documents\Elder Scrolls Online\live\AddOns\Pomodoro" "D:\Code\Pomodoro"`
-
-### Issues
-#### File Endings
-> standard_init_linux.go:207: exec user process caused "no such file or directory"
-Convert file endings to Unix style: 
-
-PowerShell:
-- Fetch dos2unix:  .\tools\get_dos2unix.ps1
-- PowerShell:  `{dos2unix_path} {sh file path}`
- - Example: ` .\tools\dos2unix\bin\dos2unix.exe .\docker\luarocks\entry-point.sh`
+There are a lot of addons that already do that, but they add a lot of additional features. The automation they provide is amazing, but I consider these breaking my gameplay immersion.
 
  
-### Docker Cleanup
-> Remove any stopped containers and all unused images. 
+- [Remember Junk](https://www.esoui.com/downloads/info470-RememberJunk.html) This is the closest fitting my needs. However it adds add features through commands such as clearing/list junked items.
+- [Zolan's Junk Handler](https://www.esoui.com/downloads/info285-ZolansJunkHandler.html)
+- [Deconstruction Junk Marker](https://www.esoui.com/downloads/info1388-DeconstructionJunkMarker.html)
+- [Dustman](https://www.esoui.com/downloads/info97-Dustman.html)
+- [JunkBuster](https://www.esoui.com/downloads/info266-JunkBuster.html)
+- [Circonians JunkIt Loot Manager](https://www.esoui.com/downloads/info661-CirconiansJunkItLootManager.html)
 
-`docker system prune -a`
+
+## Development
+This project is based on [ESOUI Framework](https://github.com/rdok/esoui-framework)
