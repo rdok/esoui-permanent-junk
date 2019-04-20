@@ -1,3 +1,7 @@
+.idea/
+.env
+modules/
+
 # Compiled Lua sources
 luac.out
 
