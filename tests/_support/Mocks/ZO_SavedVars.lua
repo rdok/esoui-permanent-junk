@@ -23,3 +23,4 @@ end
 function ZO_SavedVars:getAccount(index)
     return ZO_SavedVars.accounts[index]
 end
+
