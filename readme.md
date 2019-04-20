@@ -3,7 +3,6 @@
 
 I found it quite annoying once I sold items as junk marked, these items when re-acquired being unmarked as junk.
 
-
 There are a lot of addons that already do that, but they add a lot of additional features. The automation they provide is amazing, but I consider these breaking my gameplay immersion.
 
  

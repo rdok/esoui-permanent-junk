@@ -5,7 +5,6 @@
 ## Author: Rizart Dokollari
 ## SavedVariables: PermanentJunkVariables
 
-
 src/PermanentJunk.lua
 
 # This Add-on is not created by, affiliated with, or sponsored by, ZeniMax Media Inc. or its affiliates.
