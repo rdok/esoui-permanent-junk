@@ -8,23 +8,15 @@ describe("PermanentJunk", function()
         assert.is_same(1, PermanentJunk.variableVersion)
     end)
 
-    it("should auto-initialize the table of junk items", function()
-        local items = PermanentJunk.items
-
-        assert.is_type_of('table', items)
-    end)
-
     it("should auto-initialize account the account wide saved variables ", function()
-        local actual = ZO_SavedVars:getAccount(1)
-
         expected = {
-            ['savedVariableTable'] = "PermanentJunkVariables",
-            ['version'] = PermanentJunk.variableVersion,
-            ['namespace'] = nil,
-            ['defaults'] = PermanentJunk.items
+            savedVariableTable = "PermanentJunkDatabase",
+            version = 1,
+            namespace = 'PermanentJunk',
+            defaults = {}
         }
 
-        assert.is_same(expected, actual)
+        assert.is_same(expected, ZO_SavedVars:getAccount(1))
     end)
 
 end)

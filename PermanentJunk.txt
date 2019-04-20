@@ -3,7 +3,7 @@
 ## Version: 1.0.0
 ## APIVersion: 100026
 ## Author: Rizart Dokollari
-## SavedVariables: PermanentJunkVariables
+## SavedVariables: PermanentJunkDatabase
 
 src/PermanentJunk.lua
 

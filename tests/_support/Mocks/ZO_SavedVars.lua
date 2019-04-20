@@ -11,12 +11,12 @@ function ZO_SavedVars:NewAccountWide(savedVariableTable, version, namespace, def
     end
 
     ZO_SavedVars.accounts[index] = {
-        ['savedVariableTable'] = savedVariableTable,
-        ['version'] = version,
-        ['namespace'] = namespace,
-        ['defaults'] = defaults,
-        ['profile'] = profile,
-        ['displayName'] = displayName
+        savedVariableTable = savedVariableTable,
+        version = version,
+        namespace = namespace,
+        defaults = defaults,
+        profile = profile,
+        displayName = displayName
     }
 end
 
