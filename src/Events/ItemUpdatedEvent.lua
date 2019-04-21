@@ -7,8 +7,8 @@ end
 ItemUpdatedEvent = function(bagId, slotId, itemId)
     if itemRemovedUnexpectedly(itemId) then do return end end
 
-    if not IsItemJunk(bagId, slotId) then
-        return Database.removeById(itemId)
+    if not IsItemJunk(bagId, slotId) and Database.hasId(itemId) then
+        return Database.removeItemById(itemId)
     end
 
     Database.insertById(itemId, {

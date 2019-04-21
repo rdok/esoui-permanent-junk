@@ -8,22 +8,20 @@ end
 
 Database.insertById = function(id, item)
     Database.data[id] = item
-
-    Printer.print('Created.', bagId, slotId, itemId)
-
-    return Database.data[id]
 end
 
-Database.removeById = function(id)
-    Printer.print('Deleting.', bagId, slotId, itemId)
-
+Database.removeItemById = function(id)
     Database.data[id] = nil
 end
 
 Database.getById = function(id)
-    if (nil == Database.data[id]) then
-        return nil
+    if (not Database.data[id]) then
+        error('Not item exists with id: ' .. tostring(id))
     end
 
     return Database.data[id]
+end
+
+Database.hasId = function(id)
+    return nil ~= Database.data[id]
 end

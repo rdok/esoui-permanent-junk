@@ -17,7 +17,7 @@ describe("Database", function()
         Database.data[expectedId] = expectedItem
         assert.is_not_nil(Database.data[expectedId])
 
-        Database.removeById(expectedId)
+        Database.removeItemById(expectedId)
 
         assert.is_nil(Database.data[expectedId])
     end)
@@ -28,5 +28,13 @@ describe("Database", function()
         Database.insertById(expectedId, expectedItem)
 
         assert.is_same(expectedItem, Database.data[expectedId])
+    end)
+
+    it("should be able to answer if any item exists given an ide", function()
+        assert.is_false(Database.hasId(expectedId))
+
+        Database.data[expectedId] = expectedItem
+
+        assert.is_true(Database.hasId(expectedId))
     end)
 end)
