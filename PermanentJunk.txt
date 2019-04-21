@@ -5,7 +5,6 @@
 ## Author: Rizart Dokollari
 ## SavedVariables: PermanentJunkDatabase
 
-src/Packages/Inspect.lua
 src/Events/ItemUpdatedEvent.lua
 src/Events/ItemCreatedEvent.lua
 src/Events/EventDispatcher.lua

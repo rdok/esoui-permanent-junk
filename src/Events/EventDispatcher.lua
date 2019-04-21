@@ -1,6 +1,11 @@
-EventDispatcher = function(_, bagId, slotId, isNewItem)
+local testedBagId = {}
+testedBagId[BAG_VIRTUAL] = true
+testedBagId[BAG_BACKPACK] = true
+testedBagId[BAG_WORN] = true
+testedBagId[BAG_WORN] = true
+testedBagId[BAG_BANK] = true
 
-    pj_print('EventDispatcher: bagId: ' .. bagId)
+EventDispatcher = function(_, bagId, slotId, isNewItem)
 
     if (bagId ~= BAG_BACKPACK) then return end
 
@@ -11,5 +16,5 @@ EventDispatcher = function(_, bagId, slotId, isNewItem)
         return ItemCreatedEvent(bagId, slotId, itemId)
     end
 
-    return ItemUpdatedEvent(bagId, slotId, itemId)
+    return ItemUpdatedEvent(bagId, slotId, itemId, itemLink)
 end

@@ -1,21 +1,27 @@
 describe("ItemUpdatedEvent", function()
 
+    local expectedLink = 'linkValue'
+    local expectedName = 'nameValue'
+    local expectedCreatedAt = 'createdValue'
+    local expectedId = 'idValue'
+
     it("should save an item of junk type to the database", function()
         stub(_G, 'IsItemJunk').returns(true)
-        stub(_G, 'GetItemName').returns('ItemName')
+        stub(_G, 'GetItemName').returns(expectedName)
         stub(Database, 'insertById')
 
         -- https://github.com/Olivine-Labs/luassert/pull/84#issuecomment-98021906
         stub(os, 'date').invokes(function(argument)
-            if ('%c' == argument) then return 'CreatedAtValue' end
+            if ('%c' == argument) then return expectedCreatedAt end
             return nil
         end)
 
-        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', 'ItemIdValue')
+        ItemUpdatedEvent(expectedBagId, expectedSlotId, expectedId, expectedLink)
 
-        assert.stub(Database.insertById).was_called_with('ItemIdValue', {
-            ["name"] = 'ItemName',
-            ["createdAt"] = 'CreatedAtValue'
+        assert.stub(Database.insertById).was_called_with(expectedId, {
+            ["name"] = expectedName,
+            ["createdAt"] = expectedCreatedAt,
+            ["link"] = expectedLink
         })
     end)
 

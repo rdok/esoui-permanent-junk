@@ -14,6 +14,8 @@ end
 EVENT_MANAGER:RegisterForEvent(namespace, EVENT_ADD_ON_LOADED, PermanentJunk.onAddOnLoaded)
 
 pj_print = function(message, item)
+    if not PermanentJunk.DebugEnabled then do return end end
+
     -- TODO: deployment script should delete inspect script
     if nil == Inspect then do return end end
 

@@ -46,6 +46,8 @@ function EsoLuaLoader:initializeConstants()
 
     BAG_BACKPACK = 1
     BAG_VIRTUAL = 5
+    BAG_WORN = 0
+    BAG_BANK = 2
 
     DT_LOW = 0
     DL_BACKGROUND = 0

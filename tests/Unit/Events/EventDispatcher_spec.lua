@@ -1,10 +1,22 @@
 describe("EventDispatcher", function()
 
     local itemId = 'itemIdLoreIpsum'
+    local expectedLink = 'linkValue'
+    local expectedBagId = BAG_BACKPACK
+    local expectedSlotId = 'slotIdValue'
 
     before_each(function()
-        _G.ZO_LinkHandler_ParseLink = function() return _, _, _, itemId end
-        _G.GetItemLink = function() return nil end
+        stub(_G, 'GetItemLink').invokes(function(bagId, slotId)
+            if (expectedBagId == bagId and expectedSlotId == slotId) then
+                return expectedLink
+            end
+            error('Unexpected arguments passed.')
+        end)
+
+        stub(_G, 'ZO_LinkHandler_ParseLink').invokes(function(link)
+            if (expectedLink == link) then return 1, 2, 4, itemId end
+            error('Unexpected arguments passed.')
+        end)
     end)
 
     it("should dispatch event for new item", function()
@@ -19,10 +31,10 @@ describe("EventDispatcher", function()
     it("should dispatch event for updated item", function()
         stub(_G, 'ItemUpdatedEvent')
 
-        EventDispatcher(_, BAG_BACKPACK, 'slotIdValue', false)
+        EventDispatcher(_, BAG_BACKPACK, expectedSlotId, false)
 
         assert.stub(_G.ItemUpdatedEvent)
-              .was_called_with(BAG_BACKPACK, 'slotIdValue', itemId)
+              .was_called_with(BAG_BACKPACK, expectedSlotId, itemId, expectedLink)
     end)
 
     it("should not process virtual bag", function()
