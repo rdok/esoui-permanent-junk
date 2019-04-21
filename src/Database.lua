@@ -13,7 +13,8 @@ Database.insertById = function(id, item)
 end
 
 Database.removeItemById = function(id)
-    pj_print('Removing item: ' .. Inspect.inspect(Database.getById(id)))
+    pj_print('Removing item: ' .. tostring(id) , Database.getById(id))
+
     Database.data[id] = nil
 end
 

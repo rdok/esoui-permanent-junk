@@ -42,4 +42,13 @@ describe("ItemUpdatedEvent", function()
 
         assert.stub(Database.removeItemById).was_not_called()
     end)
+
+    it("should not insert an item if it's not junk and it does not exists in the database", function()
+        stub(_G, 'IsItemJunk').returns(false)
+        stub(Database, 'insertById')
+
+        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', nil)
+
+        assert.stub(Database.insertById).was_not_called()
+    end)
 end)
