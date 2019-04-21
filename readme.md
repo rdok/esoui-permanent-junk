@@ -6,7 +6,15 @@
 
 I found it quite annoying once I sold items as junk marked, these items when re-acquired being unmarked as junk.
 
-There are a lot of addons that already do that, but they add a lot of additional features. The automation they provide is amazing, but I consider these breaking my gameplay immersion.
+
+#### Features
+- Changes are saved for the account
+- persisting when  on logout/esoui reload.
+- Lightweight. Hooks on [Event filtering.](https://wiki.esoui.com/AddFilterForEvent)
+- Minimalistic. No messages, or any other hidden changes.
+- Fully TDD with CI, ensuring stability, maintainability, and very easy to patch any missed bugs.
+
+There are a lot of addons that already do that, I think, but they add a lot of additional features. The automation they provide is amazing, but I consider these breaking my gameplay immersion.
 
  
 - [Remember Junk](https://www.esoui.com/downloads/info470-RememberJunk.html) This is the closest fitting my needs. However it adds add features through commands such as clearing/list junked items.
