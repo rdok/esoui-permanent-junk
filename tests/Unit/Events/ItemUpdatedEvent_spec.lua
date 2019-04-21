@@ -3,6 +3,8 @@ describe("ItemUpdatedEvent", function()
     it("should save an item of junk type to the database", function()
         stub(_G, 'IsItemJunk').returns(true)
         stub(_G, 'GetItemName').returns('ItemName')
+        stub(Database, 'insertById')
+
         -- https://github.com/Olivine-Labs/luassert/pull/84#issuecomment-98021906
         stub(os, 'date').invokes(function(argument)
             if ('%c' == argument) then return 'CreatedAtValue' end
@@ -11,28 +13,33 @@ describe("ItemUpdatedEvent", function()
 
         ItemUpdatedEvent('BagIdValue', 'SlotIdValue', 'ItemIdValue')
 
-        assert.is_same({
+        assert.stub(Database.insertById).was_called_with('ItemIdValue', {
             ["name"] = 'ItemName',
             ["createdAt"] = 'CreatedAtValue'
-        }, PermanentJunk.database['ItemIdValue'])
+        })
     end)
 
     it("should remove an non-junk item from the database.", function()
         stub(_G, 'IsItemJunk').returns(false)
-        local itemId = 'ItemValueId'
+        stub(Database, 'removeItemById')
 
-        PermanentJunk.database['ItemValueId'] = { '--lorem-ipsum--' }
-        assert.is_not_nil(PermanentJunk.database[itemId])
+        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', 'ItemIdValue')
 
-        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', itemId)
-        assert.is_nil(PermanentJunk.database[itemId])
+        assert.stub(Database.removeItemById).was_not_called()
     end)
 
     it("should not attempt to remove a removed item from the database", function()
-        stub(_G, 'IsItemJunk').returns(false)
-
         ItemUpdatedEvent('BagIdValue', 'SlotIdValue', nil)
 
         assert.is_true(true) -- no error thrown
+    end)
+
+    it("should not attempt to remove a non-existent item from the database", function()
+        stub(_G, 'IsItemJunk').returns(false)
+        stub(Database, 'removeItemById')
+
+        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', 'ItemValueId')
+
+        assert.stub(Database.removeItemById).was_not_called()
     end)
 end)

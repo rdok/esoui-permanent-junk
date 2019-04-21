@@ -3,7 +3,7 @@ describe("ItemCreatedEvent", function()
     it('should junk new items given they are stored as such in the database', function()
         stub(_G, "SetItemIsJunk")
 
-        PermanentJunk.database['itemIdValue'] = { '--lorem-ipsum--' }
+        Database.insertById('itemIdValue', { '--lorem-ipsum--' })
 
         ItemCreatedEvent('bagIdValue', 'slotIdValue', 'itemIdValue')
 
@@ -13,7 +13,7 @@ describe("ItemCreatedEvent", function()
 
     it('should not junk new items given they are NOT stored in the database', function()
         stub(_G, "SetItemIsJunk")
-        PermanentJunk.database['itemIdValue'] = nil
+        Database.removeItemById('itemIdValue')
 
         ItemCreatedEvent('bagIdValue', 'slotIdValue', 'itemIdValue')
 

@@ -36,6 +36,7 @@ function EsoLuaLoader:initializeGlobals()
     require "CHAT_SYSTEM"
     require "d"
     require "ZO_SavedVars"
+    require "GetItemName"
 end
 
 function EsoLuaLoader:initializeConstants()

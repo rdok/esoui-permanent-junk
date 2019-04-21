@@ -5,9 +5,11 @@
 ## Author: Rizart Dokollari
 ## SavedVariables: PermanentJunkDatabase
 
-src/EventDispatcher.lua
-src/ItemUpdatedEvent.lua
-src/ItemCreatedEvent.lua
+src/Packages/Inspect.lua
+src/Events/ItemUpdatedEvent.lua
+src/Events/ItemCreatedEvent.lua
+src/Events/EventDispatcher.lua
+src/Database.lua
 src/PermanentJunk.lua
 
 # This Add-on is not created by, affiliated with, or sponsored by, ZeniMax Media Inc. or its affiliates.
