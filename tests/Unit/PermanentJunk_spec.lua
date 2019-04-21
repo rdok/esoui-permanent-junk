@@ -63,16 +63,6 @@ describe("PermanentJunk", function()
         )
     end)
 
-    it("should remove an non-junk item from the database.", function()
-        _G.IsItemJunk = function() return false end
-        _G.GetItemLink = function() return 'link' end
-        _G.ZO_LinkHandler_ParseLink = function() return 1, 2, 3, 'uuid' end
-
-        PermanentJunk.database['uuid'] = { 'value' }
-        assert.is_not_nil(PermanentJunk.database['uuid'])
-        PermanentJunk.update('eventcode', 'bagId', 'slotId')
-        assert.is_nil(PermanentJunk.database['uuid'])
-    end)
     it('#dd should not remove item from db if it was removed backpack', function()
         _G.ZO_LinkHandler_ParseLink = function() return nil end
         _G.GetItemLink = function() return end
