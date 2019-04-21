@@ -3,6 +3,7 @@ describe("ItemUpdatedEvent", function()
     it("should save an item of junk type to the database", function()
         stub(_G, 'IsItemJunk').returns(true)
         stub(_G, 'GetItemName').returns('ItemName')
+        -- https://github.com/Olivine-Labs/luassert/pull/84#issuecomment-98021906
         stub(os, 'date').invokes(function(argument)
             if ('%c' == argument) then return 'CreatedAtValue' end
             return nil
@@ -27,7 +28,7 @@ describe("ItemUpdatedEvent", function()
         assert.is_nil(PermanentJunk.database[itemId])
     end)
 
-    it("should not attempt to remove an unknown item from the database", function()
+    it("should not attempt to remove a removed item from the database", function()
         stub(_G, 'IsItemJunk').returns(false)
 
         ItemUpdatedEvent('BagIdValue', 'SlotIdValue', nil)

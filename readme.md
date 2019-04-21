@@ -8,8 +8,9 @@ I found it quite annoying once I sold items as junk marked, these items when re-
 
 
 #### Features
-- Changes are saved for the account
-- persisting when  on logout/esoui reload.
+- Mark as junk new items that have been marked in the past as such.
+- Changes are saved for the account.
+- Persisting when  on logout/esoui reload.
 - Lightweight. Hooks on [Event filtering.](https://wiki.esoui.com/AddFilterForEvent)
 - Minimalistic. No messages, or any other hidden changes.
 - Fully TDD with CI, ensuring stability, maintainability, and very easy to patch any missed bugs.
