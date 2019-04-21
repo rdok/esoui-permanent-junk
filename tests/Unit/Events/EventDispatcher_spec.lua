@@ -25,4 +25,14 @@ describe("EventDispatcher", function()
               .was_called_with('bagIdValue', 'slotIdValue', itemId)
     end)
 
+
+    it("should not process bag belonging to clothing station", function()
+        stub(_G, 'ItemCreatedEvent')
+        stub(_G, 'ItemUpdatedEvent')
+
+        EventDispatcher(_, 5)
+
+        assert.stub(_G.ItemCreatedEvent).was_not_called()
+        assert.stub(_G.ItemUpdatedEvent).was_not_called()
+    end)
 end)

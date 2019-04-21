@@ -13,7 +13,7 @@ Database.insertById = function(id, item)
 end
 
 Database.removeItemById = function(id)
-    pj_print('Removing item: ' .. tostring(id) , Database.getById(id))
+    pj_print('Removing item: ' .. tostring(id), Database.getById(id))
 
     Database.data[id] = nil
 end
@@ -27,5 +27,14 @@ Database.getById = function(id)
 end
 
 Database.hasId = function(id)
-    return nil ~= Database.data[id]
+
+    if (nil == Database.data[id]) then
+        pj_print('Unable to find id: ' .. tostring(id), {})
+
+        return false
+    end
+
+    pj_print('Found existing item: ' .. tostring(id), Database.getById(id))
+
+    return true
 end

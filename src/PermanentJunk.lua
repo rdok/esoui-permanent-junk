@@ -17,5 +17,7 @@ pj_print = function(variable, item)
     -- TODO: deployment script should delete inspect script
     if nil == Inspect then do return end end
 
-    d(string.format('[PermanentJunk]: %s: %s', variable, Inspect.inspect(item)))
+    local secondArgument = nil ~= item and Inspect.inspect(item) or nil
+
+    d(string.format('[PermanentJunk]: %s: %s', variable, secondArgument))
 end
