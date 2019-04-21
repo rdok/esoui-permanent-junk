@@ -14,5 +14,6 @@ ENV LUA_PATH "/app/tests/Unit/Events/?.lua;$LUA_PATH"
 ENV LUA_PATH "/app/tests/Acceptance/?.lua;$LUA_PATH"
 ENV LUA_PATH "/app/tests/?.lua;$LUA_PATH"
 ENV LUA_PATH "/app/src/Events/?.lua;$LUA_PATH"
+ENV LUA_PATH "/app/src/Packages/?.lua;$LUA_PATH"
 
 ENTRYPOINT ["/app/docker/busted/entry-point.sh"]

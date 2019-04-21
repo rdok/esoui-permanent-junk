@@ -7,10 +7,13 @@ Database.new = function()
 end
 
 Database.insertById = function(id, item)
+    pj_print('Inserting item: ', item)
+
     Database.data[id] = item
 end
 
 Database.removeItemById = function(id)
+    pj_print('Removing item: ' .. Inspect.inspect(Database.getById(id)))
     Database.data[id] = nil
 end
 
