@@ -14,24 +14,31 @@ describe("ItemUpdatedEvent", function()
         assert.is_same({
             ["name"] = 'ItemName',
             ["createdAt"] = 'CreatedAtValue'
-        }, PermanentJunk.database['ItemIdValue'])
+        }, PermanentJunk.data['ItemIdValue'])
     end)
 
     it("should remove an non-junk item from the database.", function()
         stub(_G, 'IsItemJunk').returns(false)
         local itemId = 'ItemValueId'
 
-        PermanentJunk.database['ItemValueId'] = { '--lorem-ipsum--' }
-        assert.is_not_nil(PermanentJunk.database[itemId])
+        PermanentJunk.data['ItemValueId'] = { '--lorem-ipsum--' }
+        assert.is_not_nil(PermanentJunk.data[itemId])
 
         ItemUpdatedEvent('BagIdValue', 'SlotIdValue', itemId)
-        assert.is_nil(PermanentJunk.database[itemId])
+        assert.is_nil(PermanentJunk.data[itemId])
     end)
 
     it("should not attempt to remove a removed item from the database", function()
+        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', nil)
+
+        assert.is_true(true) -- no error thrown
+    end)
+
+    it(" #dd should not attempt to remove a non-existent item from the database", function()
         stub(_G, 'IsItemJunk').returns(false)
 
-        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', nil)
+        ItemUpdatedEvent('BagIdValue', 'SlotIdValue', 'ItemValueId')
+        PermanentJunk.data['ItemValueId'] = nil
 
         assert.is_true(true) -- no error thrown
     end)

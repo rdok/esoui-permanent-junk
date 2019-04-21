@@ -1,4 +1,4 @@
-PermanentJunk = { database = {} }
+PermanentJunk = { data = {} }
 
 local databaseHost = "PermanentJunkDatabase"
 local namespaceSave = 'PermanentJunkSave'
