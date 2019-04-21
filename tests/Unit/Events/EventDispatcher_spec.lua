@@ -10,27 +10,26 @@ describe("EventDispatcher", function()
     it("should dispatch event for new item", function()
         stub(_G, 'ItemCreatedEvent')
 
-        EventDispatcher(_, 'bagIdValue', 'slotIdValue', true)
+        EventDispatcher(_, BAG_BACKPACK, 'slotIdValue', true)
 
         assert.stub(_G.ItemCreatedEvent)
-              .was_called_with('bagIdValue', 'slotIdValue', itemId)
+              .was_called_with(BAG_BACKPACK, 'slotIdValue', itemId)
     end)
 
     it("should dispatch event for updated item", function()
         stub(_G, 'ItemUpdatedEvent')
 
-        EventDispatcher(_, 'bagIdValue', 'slotIdValue', false)
+        EventDispatcher(_, BAG_BACKPACK, 'slotIdValue', false)
 
         assert.stub(_G.ItemUpdatedEvent)
-              .was_called_with('bagIdValue', 'slotIdValue', itemId)
+              .was_called_with(BAG_BACKPACK, 'slotIdValue', itemId)
     end)
 
-
-    it("should not process bag belonging to clothing station", function()
+    it("should not process virtual bag", function()
         stub(_G, 'ItemCreatedEvent')
         stub(_G, 'ItemUpdatedEvent')
 
-        EventDispatcher(_, 5)
+        EventDispatcher(_, BAG_VIRTUAL)
 
         assert.stub(_G.ItemCreatedEvent).was_not_called()
         assert.stub(_G.ItemUpdatedEvent).was_not_called()

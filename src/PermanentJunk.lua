@@ -13,11 +13,11 @@ end
 
 EVENT_MANAGER:RegisterForEvent(namespace, EVENT_ADD_ON_LOADED, PermanentJunk.onAddOnLoaded)
 
-pj_print = function(variable, item)
+pj_print = function(message, item)
     -- TODO: deployment script should delete inspect script
     if nil == Inspect then do return end end
 
-    local secondArgument = nil ~= item and Inspect.inspect(item) or nil
+    local secondArgument = nil ~= item and Inspect.inspect(item) or ''
 
-    d(string.format('[PermanentJunk]: %s: %s', variable, secondArgument))
+    d(string.format('[PermanentJunk]: %s: %s', message, secondArgument))
 end

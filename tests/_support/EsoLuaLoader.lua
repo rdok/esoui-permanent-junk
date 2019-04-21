@@ -44,6 +44,9 @@ function EsoLuaLoader:initializeConstants()
     EVENT_LOOT_UPDATED = 131314
     EVENT_ADD_ON_LOADED = 65536
 
+    BAG_BACKPACK = 1
+    BAG_VIRTUAL = 5
+
     DT_LOW = 0
     DL_BACKGROUND = 0
     DL_CONTROLS = 1
