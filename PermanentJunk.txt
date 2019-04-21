@@ -3,8 +3,11 @@
 ## Version: 1.0.0
 ## APIVersion: 100026
 ## Author: Rizart Dokollari
-## SavedVariables: PermanentJunkVariables
+## SavedVariables: PermanentJunkDatabase
 
+src/EventDispatcher.lua
+src/ItemUpdatedEvent.lua
+src/ItemCreatedEvent.lua
 src/PermanentJunk.lua
 
 # This Add-on is not created by, affiliated with, or sponsored by, ZeniMax Media Inc. or its affiliates.
